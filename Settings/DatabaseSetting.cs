@@ -105,6 +105,11 @@ namespace DatabaseFreeSql
         public StringConvertType stringConvertType { get; set; }
 
         /// <summary>
+        /// 是否启用全局导航配置
+        /// </summary>
+        public bool EnableAddOrUpdateNavigateList { get; set; }
+
+        /// <summary>
         /// 配置参数初始化
         /// </summary>
         public DatabaseSetting()
@@ -126,6 +131,7 @@ namespace DatabaseFreeSql
             MonitorCommandExecuted = null;
             UseEntityPropertyNameConvert = false;
             stringConvertType = StringConvertType.None;
+            EnableAddOrUpdateNavigateList = true;
         }
     }
 }

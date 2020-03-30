@@ -5,11 +5,12 @@ using System.Text;
 
 namespace DatabaseFreeSql.Entity
 {
-    public class Blog
+    class Aircraft :Transportation
     {
+        /*
         [Column(IsIdentity = true, IsPrimary = true)]
-        public int BlogId { get; set; }
-        public string Url { get; set; }
-        public int Rating { get; set; }
+        public int id { get; set; }
+        */
+        public string brand { get; set; }
     }
 }

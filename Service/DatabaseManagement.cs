@@ -11,7 +11,7 @@ namespace DatabaseFreeSql
     {
         protected String connstr { get; set; }
 
-        public IFreeSql fsql;
+        public IFreeSql freeSql { get; set; }
 
         protected DatabaseSetting databaseSetting { get; set; }
 
@@ -22,7 +22,7 @@ namespace DatabaseFreeSql
 
         public virtual IFreeSql Init(DatabaseSetting setting)
         {
-            return fsql;
+            return freeSql;
         }
 
         /// <summary>
@@ -46,10 +46,12 @@ namespace DatabaseFreeSql
             SqlBuilder = SqlBuilder.UseLazyLoading(databaseSetting.UseLazyLoading);
             SqlBuilder = SqlBuilder.UseMonitorCommand(databaseSetting.MonitorCommandExecuting, databaseSetting.MonitorCommandExecuted);
             SqlBuilder = SqlBuilder.UseEntityPropertyNameConvert(databaseSetting.stringConvertType);
+       
+            freeSql = SqlBuilder.Build();
 
-            fsql = SqlBuilder.Build();
+            freeSql = freeSql.SetDbContextOptions(opt => opt.EnableAddOrUpdateNavigateList = databaseSetting.EnableAddOrUpdateNavigateList);
 
-            return fsql;
+            return freeSql;
         }
     }
 }

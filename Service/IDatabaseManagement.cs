@@ -6,7 +6,7 @@ namespace DatabaseFreeSql
 {
     interface IDatabaseManagement
     {
-        public IFreeSql;
+        public IFreeSql freeSql { get; set; }
         public IFreeSql Init(DatabaseSetting setting);
     }
 }
