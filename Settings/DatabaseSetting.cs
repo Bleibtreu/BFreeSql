@@ -6,7 +6,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Text;
 
-namespace DatabaseFreeSql
+namespace BFreeSql
 {
     /// <summary>
     /// 数据库配置，可根据对应的数据库进行对应配置

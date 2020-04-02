@@ -3,14 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatabaseFreeSql
+namespace BFreeSql
 {
     class DatabaseFactory: IDisposable
     {
 
-        private static IDatabaseManagement database;
+        private static DatabaseManagement database { get; set; }
 
-        public static IDatabaseManagement NewInstance(DatabaseSetting setting)
+        /// <summary>
+        /// 创建数据库工厂对象
+        /// </summary>
+        /// <param name="setting"></param>
+        /// <returns></returns>
+        public static DatabaseManagement NewInstance(DatabaseSetting setting)
         {
             if (database != null)
                 return database;
@@ -29,7 +34,7 @@ namespace DatabaseFreeSql
             return database;
         }
 
-        public static IDatabaseManagement NewInstance(DataType type, DatabaseSetting setting)
+        public static DatabaseManagement NewInstance(DataType type, DatabaseSetting setting)
         {
             setting.DatabaseType = type;
             return NewInstance(setting);
